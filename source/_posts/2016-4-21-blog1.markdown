@@ -1,0 +1,81 @@
+---
+layout: post
+title: "搭建博客"
+date: 2016-04-21 23:01:20 +0800
+comments: true
+categories: ['Android','安卓']
+---
+## 1、git设置
+#### 全局配置
+
+> git config -- global user.name "qike"
+
+> git -config -- global user.email "qike@163.com"
+
+#### 秘钥生成
+> ssh-keygen -t rsa -C "qike@163.com"
+
+检验秘钥是否有效
+
+> ssh -T git@github.com
+
+## 2、Ruby设置
+
+分别安装好Ruby和DevKit后，需要将俩者关联起来
+进入Dvkit安装目录
+> ruby dk.rb init
+> 
+> ruby dk.rb install
+
+## 3、安装Octopress
+克隆到本地
+
+> git clone git://github.com/imathis/octopress.git octopress
+> cd octopress
+
+安装依赖项
+>gem sources --add http://gems.ruby-china.org/ --remove https://rubygems.org/
+>
+> gem source -l 
+
+修改gemfile文件，将url也改成 http://gems.ruby-china.org/
+
+> gem install bundler
+
+> bundle install
+
+安装并使用默认主题
+
+> rake install
+
+生成博客
+> rake generate
+
+预览博客
+> rake preview
+
+1.新建博客
+	
+	rake new_post["title"]
+
+2.新建单页面
+
+	rake new_page[jikexueyuan]
+
+3、文件模板
+
+	layout: post	//post模板文件的布局
+	title: "ormlite"	//标题
+	date: 2016-04-21 23:01:20 +0800	//文字日期
+	comments: true	//允许评论
+	categories: [Android，安卓]	//分类
+
+
+## 4、部署博客到github
+	rake setup_github_pages
+	//需要设置url
+
+每次新生成页面都要书写如下命令行
+	rake deploy	
+
+## 5、将源码托管至gitHub
