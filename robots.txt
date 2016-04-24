@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://qike.website/sitemap.xml 
+Sitemap: http://qike2015.github.io/sitemap.xml 
